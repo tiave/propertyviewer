@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Property Viewer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<div class="col-md-4">
+		<h1>Properties</h1>
+	</div>
+	<div class="col-md-4">
+		<h3 th:inline="text">list of properties</h3>
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+	</div>
+    <table class="table table-striped">
+		<tr>
+		    <th>Property</th>
+		    <th>Address</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+		    <th>Description</th>
+		</tr>  
+    	<tr th:each = "property : ${properties}">
+    		<td th:text="${property.name}"></td>
+    		<td th:text="${property.street}"></td>
+    		<td th:text="${property.number}"></td>
+    		<td th:text="${property.postalcode}"></td>
+            <td th:text="${property.city}"></td> 
+            <td th:text="${property.country}"></td> 
+            <td th:text="${property.desc}"></td>
+            <td><a th:href="@{/edit/{id}(id=${property.id})}" class="btn btn-xs btn-success">Edit</a></td>			
+    	</tr>
+     </table>
+	 
+</div>	    	
+</body>
+</html>

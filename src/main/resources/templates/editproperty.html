@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Properties</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Edit the property info</h1>
+	<div>
+		<form th:object="${property}" th:action="@{../save}" action="#" method="post">
+            <input type="hidden" id="id" th:field="*{id}" />
+		  	<label for="name">Property name</label>
+			<input type="text" id="name" th:field="*{name}" />
+			<div style="clear: both; display: block; height: 15px;"></div>
+		  	<label for="street">Street</label>
+			<input type="text" id="street" th:field="*{street}" />
+			<div style="clear: both; display: block; height: 15px;"></div>
+		  	<label for="number">Number</label>
+			<input type="text" th:field="*{number}" />
+			<div style="clear: both; display: block; height: 15px;"></div>
+            <label for="postalcode">Postal code</label>
+			<input type="text" id="postalcode" th:field="*{postalcode}" />
+			<div style="clear: both; display: block; height: 15px;"></div>
+            <label for="city">City</label>
+			<input type="text" id="city" th:field="*{city}" />
+			<div style="clear: both; display: block; height: 15px;"></div>
+            <label for="country">Country</label>
+			<input type="text" id="country" th:field="*{country}" />
+			<div style="clear: both; display: block; height: 15px;"></div>
+            <label for="desc">Description</label>
+			<input type="text" id="desc" th:field="*{desc}" />
+			<div style="clear: both; display: block; height: 15px;"></div>
+			
+			<div style="clear: both; display: block; height: 15px;"></div>
+			<input type="submit" value="Save"></input>
+		</form>
+	</div>
+</body>
+</html>

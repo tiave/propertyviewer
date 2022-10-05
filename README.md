@@ -33,7 +33,7 @@ Login feature with demo user (username user, password user) or demo admin (usern
 * add
 * edit
 * delete (admin)
-* (get coordinates based on property name once postgreSQL connection is fixed)
+* (get coordinates based on property name once the method is fixed)
 
 ### REST
 
@@ -83,13 +83,13 @@ Open localhost:8080
 
 ## Problems during the task
 
-* Time management: took some time to commemorate Java syntax, Spring JPA project structure and so on
+* Time management: it took some time to commemorate Java syntax, Spring JPA project structure and so on
 * Working with the geoapify API was more difficult than I first thought; especially writing the call (turns out I'm a JS fetch() kind of girl after all)
 * project structure (Thymeleaf...) got me a bit confused; wasn't clear where to send what and when
-* PostgreSQL implementation almost worked (and has  worked before); this time got errors such as
+* PostgreSQL implementation _almost_ worked (and has  worked before); this time there were errors such as
 _On release of batch it still contained JDBC statements_ which I couldn't find a proper solution for
 * typically I would go for a friend/colleague for help, but didn't find that appropriate on this case -> endless googling with little progress per hour
-* Heroku build failing, but fixing that not urgent
+* Heroku build failing, but fixing that does not feel urgent
 
 
 

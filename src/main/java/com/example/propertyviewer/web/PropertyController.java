@@ -14,11 +14,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import io.github.cdimascio.dotenv.Dotenv;
+
 @Controller
 public class PropertyController {
     @Autowired
     private PropertyRepository pRepo;
-
 
         //login page
         @RequestMapping(value= {"/", "/login"})
@@ -64,6 +72,34 @@ public class PropertyController {
             pRepo.deleteById(id);
             return "redirect:../properties";
         }    
+
+        //TODO: API call
+        //ideally the user would press "get coordinates" or so and trigger this
+        //property name would be sent here for the link formatting
+        //definitely missing some steps and don't know how to continue
+        //and what to do with syntax and logic
+
+        @GetMapping (value="/coordinates/{name}")
+
+        public void getCoordinates(@PathVariable("name") String name, Model model) {
+
+            //get api key from separate .env file not visible on version control
+            Dotenv dotenv = null;
+            dotenv = Dotenv.configure().load();
+            dotenv.get("API_KEY");
+
+            model.addAttribute("name", pRepo.findByName(name));
+/* 
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://api.geoapify.com/v1/geocode/search?name="+ name +"&apiKey=" + dotenv))
+                .header("Content-Type", "application/json")
+                .build();
+
+            HttpResponse<String> response =
+            client.send(request, BodyHandlers.ofString()); */
+        }
+
 
         //REST page for listing all properties
         @RequestMapping(value="/api/allproperties")

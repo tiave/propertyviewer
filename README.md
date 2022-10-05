@@ -69,7 +69,8 @@ Clone the repository
 
     mvn clean install
     
-App running on localhost:8080
+Run PropertyviewerApplication.java 
+Open localhost:8080
 
 
 ## Resources I found useful

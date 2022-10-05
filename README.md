@@ -25,9 +25,6 @@ Login feature with demo user (username user, password user) or demo admin (usern
 
 ## Usage
 
-### Screenshots
-
-
 
 ### Features
 
@@ -66,7 +63,11 @@ This was my first attempt on writing tests for a Java project, so it was great t
 
 ### Build
 
+Clone the repository
+
     mvn clean install
+    
+App running on localhost:8080
 
 
 ## Resources I found useful

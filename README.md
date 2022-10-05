@@ -49,6 +49,8 @@ Login feature with demo user (username user, password user) or demo admin (usern
 Java JDK 17
 Maven 4.0.0
 Git
+Spring Framework
+SpringBoot
 
 ### Tests
 

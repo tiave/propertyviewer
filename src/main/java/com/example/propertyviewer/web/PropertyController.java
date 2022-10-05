@@ -11,23 +11,26 @@ import com.example.propertyviewer.domain.PropertyRepository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class PropertyController {
     @Autowired
-    private PropertyRepository repo;
+    private PropertyRepository pRepo;
+
+
+        //login page
+        @RequestMapping(value= {"/", "/login"})
+        public String login() {	
+            return "login";
+        }	
 
         //all properties listed on the page
         @RequestMapping(value="/properties")
         public String taskList(Model model) {
-            model.addAttribute("properties", repo.findAll());
+            model.addAttribute("properties", pRepo.findAll());
             return "properties";
-        }
-
-        @RequestMapping(value="/allproperties")
-        public @ResponseBody List<Property> propertiesRest() {
-            return (List<Property>) repo.findAll();
         }
 
         //user will navigate to addproperty.html page by pressing "add property"
@@ -40,15 +43,32 @@ public class PropertyController {
         //saving new property info, redirecting to properties.html
         @RequestMapping(value="/save", method=RequestMethod.POST)
         public String save(Property property){
-            repo.save(property);
+            pRepo.save(property);
+            
+            //TODO: one idea is to have the API call method here
+            //which means it would be triggered by save-button
             return "redirect:properties";
         }
 
         //navigate to editproperty page based on id to edit the existing info
         @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
         public String editProperty(@PathVariable("id") Long id, Model model) {
-            model.addAttribute("property", repo.findById(id));
+            model.addAttribute("property", pRepo.findById(id));
             return "editproperty";
+        }
+
+        //delete method, only users with role Admin see this
+        @PreAuthorize("hasAuthority('ADMIN')")
+        @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+        public String deleteProperty(@PathVariable("id") Long id, Model model) {
+            pRepo.deleteById(id);
+            return "redirect:../properties";
+        }    
+
+        //REST page for listing all properties
+        @RequestMapping(value="/api/allproperties")
+        public @ResponseBody List<Property> propertiesRest() {
+            return (List<Property>) pRepo.findAll();
         }
 
 

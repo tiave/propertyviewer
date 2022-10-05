@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Entity
 public class Property {
     @Id
@@ -17,8 +18,7 @@ public class Property {
     private String city;
     private String country;
     private String desc;
-
-
+   
     public Property() {}
 
     public Property(String name, String street, int number, String postalcode, String city, String country, String desc) {
@@ -30,6 +30,7 @@ public class Property {
         this.city = city;
         this.country = country;
         this.desc = desc;
+
     }
 
     public Long getId() {
@@ -108,6 +109,7 @@ public class Property {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
 
 @Override
 public String toString() {

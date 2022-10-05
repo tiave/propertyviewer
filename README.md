@@ -23,14 +23,20 @@ Login feature with demo user (username user, password user) or demo admin (usern
 >   * [Problems during the task](#problems-during-the-task)
 
 
-## Installation
-
-
 ## Usage
 
 ### Screenshots
 
+
+
 ### Features
+
+* login
+* view
+* add
+* edit
+* delete (admin)
+* (get coordinates based on property name once postgreSQL connection is fixed)
 
 ### REST
 

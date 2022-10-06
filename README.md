@@ -14,18 +14,18 @@ Login feature with demo user (username user, password user) or demo admin (usern
 >   * [Table of contents](#table-of-contents)
 >   * [Installation](#installation)
 >   * [Usage](#usage)
->     * [Screenshots](#screenshots)
 >     * [Features](#features)
+>     * [REST](#REST)
+>     * [Tests](#tests)
 >   * [Code](#code)
->     * [Content](#content)
 >     * [Requirements](#requirements)
+>     * [Build](#build)
 >   * [Resources](#resources-i-found-useful)
 >   * [Problems during the task](#problems-during-the-task)
 >   * [Ideas for further development](#ideas-for-further-development)
 
 
 ## Usage
-
 
 ### Features
 
@@ -42,17 +42,6 @@ Login feature with demo user (username user, password user) or demo admin (usern
 * returns a list of all property objects
 * doesn't require logging in
 
-
-## Code
-
-### Requirements
-
-* Java JDK 17
-* Maven 4.0.0
-* Git
-* Spring Framework
-* SpringBoot
-
 ### Tests
 
 There are three simple unit tests:
@@ -63,6 +52,16 @@ There are three simple unit tests:
 
 This was my first attempt on writing tests for a Java project, so it was great to learn. Running the tests was simple with VSCode.
 
+
+## Code
+
+### Requirements
+
+* Java JDK 17
+* Maven 4.0.0
+* Git
+* Spring Framework
+* SpringBoot
 
 ### Build
 
@@ -82,6 +81,7 @@ Open localhost:8080
 * https://www.baeldung.com/spring-boot-custom-error-page
 * https://www.codejava.net/frameworks/spring-boot/fix-websecurityconfigureradapter-deprecated
 
+
 ## Problems during the task
 
 * Time management: it took some time to commemorate Java syntax, Spring JPA project structure and so on
@@ -91,6 +91,7 @@ Open localhost:8080
 _On release of batch it still contained JDBC statements_ which I couldn't find a proper solution for
 * typically I would go for a friend/colleague for help, but didn't find that appropriate on this case -> much googling with little progress per hour
 * Heroku build failing, but fixing that does not feel urgent at the moment - the main reason for deployment was to get access to Heroku Postgres
+
 
 ## Ideas for further development
 

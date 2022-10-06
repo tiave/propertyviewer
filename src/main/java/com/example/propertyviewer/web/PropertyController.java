@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.propertyviewer.domain.Property;
 import com.example.propertyviewer.domain.PropertyRepository;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,15 +75,16 @@ public class PropertyController {
             return "redirect:../properties";
         }    
 
+
         //TODO: API call
         //ideally the user would press "get coordinates" or so and trigger this
         //property name would be sent here for the link formatting
         //definitely missing some steps and don't know how to continue
         //and what to do with syntax and logic
 
-        @GetMapping (value="/coordinates/{name}")
+        /* @GetMapping (value="/coordinates")
 
-        public void getCoordinates(@PathVariable("name") String name, Model model) {
+        public String getCoordinates(@PathVariable("name") String name, Model model) {
 
             //get api key from separate .env file not visible on version control
             Dotenv dotenv = null;
@@ -89,7 +92,7 @@ public class PropertyController {
             dotenv.get("API_KEY");
 
             model.addAttribute("name", pRepo.findByName(name));
-/* 
+ 
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.geoapify.com/v1/geocode/search?name="+ name +"&apiKey=" + dotenv))
@@ -97,8 +100,13 @@ public class PropertyController {
                 .build();
 
             HttpResponse<String> response =
-            client.send(request, BodyHandlers.ofString()); */
-        }
+            client.send(request, BodyHandlers.ofString());
+            List<String> coordinates  = Arrays.asList(response.results.lon, response.results.lat); //syntax?
+
+            System.out.println(coordinates);
+
+            return "/addproperty";
+        } */
 
 
         //REST page for listing all properties

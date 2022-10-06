@@ -12,7 +12,7 @@
 		<form th:object="${property}" th:action="@{save}" action="#" method="post">
 		  	<label for="name">Property name</label>
 			<!--trying to post property name somewhere somehow-->
-			<input type="text" id="name" th:field="*{name}" th:action="@{coordinates}" action="#" method="post" /><a href="@{/coordinates}">Get coordinates (not working)</a>
+			<input type="text" id="name" th:field="*{name}" th:action="@{coordinates}" action="#" method="post" /><a href="@{/coordinates}">Get coordinates (beta)</a>
 			<div style="clear: both; display: block; height: 15px;"></div>
 		  	<label for="street">Street</label>
 			<input type="text" id="street" th:field="*{street}" />

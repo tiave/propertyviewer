@@ -90,7 +90,7 @@ Open localhost:8080
 * PostgreSQL implementation _almost_ worked (and has worked before); this time there were errors such as
 _On release of batch it still contained JDBC statements_ which I couldn't find a proper solution for
 * typically I would go for a friend/colleague for help, but didn't find that appropriate on this case -> much googling with little progress per hour
-* Heroku build failing, but fixing that does not feel urgent at the moment
+* Heroku build failing, but fixing that does not feel urgent at the moment - the main reason for deployment was to get access to Heroku Postgres
 
 ## Ideas for further development
 

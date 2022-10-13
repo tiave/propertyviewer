@@ -9,32 +9,34 @@
 <body>
 	<h1>Add a new property</h1>
 	<div>
-		<form th:object="${property}" th:action="@{save}" action="#" method="post">
-		  	<label for="name">Property name</label>
-			<!--trying to post property name somewhere somehow-->
-			<input type="text" id="name" th:field="*{name}" th:action="@{coordinates}" action="#" method="post" /><a href="@{/coordinates}">Get coordinates (beta)</a>
-			<div style="clear: both; display: block; height: 15px;"></div>
-		  	<label for="street">Street</label>
-			<input type="text" id="street" th:field="*{street}" />
-			<div style="clear: both; display: block; height: 15px;"></div>
-		  	<label for="number">Number</label>
-			<input type="text" th:field="*{number}" />
-			<div style="clear: both; display: block; height: 15px;"></div>
-            <label for="postalcode">Postal code</label>
-			<input type="text" id="postalcode" th:field="*{postalcode}" />
-			<div style="clear: both; display: block; height: 15px;"></div>
-            <label for="city">City</label>
-			<input type="text" id="city" th:field="*{city}" />
-			<div style="clear: both; display: block; height: 15px;"></div>
-            <label for="country">Country</label>
-			<input type="text" id="country" th:field="*{country}" />
-			<div style="clear: both; display: block; height: 15px;"></div>
-            <label for="desc">Description</label>
-			<input type="text" id="desc" th:field="*{desc}" />
-			<div style="clear: both; display: block; height: 15px;"></div>
-			
-			<div style="clear: both; display: block; height: 15px;"></div>
-			<input type="submit" value="Save"></input>
+		<form th:object="${form}" th:action="@{save}" action="#" method="post">
+			<fieldset>
+				<input type="submit" th:value="Save">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Street</th>
+							<th>Number</th>
+							<th>Postalcode</th>
+							<th>City</th>
+							<th>Country</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="property, itemStat : *{properties}">
+							<td><input th:field="*{properties[__${itemStat.index}__].name}" /></td>
+							<td><input th:field="*{properties[__${itemStat.index}__].street}" /></td>
+							<td><input th:field="*{properties[__${itemStat.index}__].number}" /></td>
+							<td><input th:field="*{properties[__${itemStat.index}__].postalcode}" /></td>
+							<td><input th:field="*{properties[__${itemStat.index}__].city}" /></td>
+							<td><input th:field="*{properties[__${itemStat.index}__].country}" /></td>
+							<td><input th:field="*{properties[__${itemStat.index}__].desc}" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</fieldset>
 		</form>
 	</div>
 </body>

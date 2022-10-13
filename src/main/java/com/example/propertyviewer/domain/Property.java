@@ -1,5 +1,7 @@
 package com.example.propertyviewer.domain;
 
+import java.util.List;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +22,9 @@ public class Property {
     private String desc;
    
     public Property() {}
+
+    @ElementCollection
+    private List<Property> properties;
 
     public Property(String name, String street, int number, String postalcode, String city, String country, String desc) {
         super();
@@ -117,5 +122,4 @@ public String toString() {
             + ", city=" + city + ", country=" + country + ", desc=" + desc + "]";
 }
 
-    
 }

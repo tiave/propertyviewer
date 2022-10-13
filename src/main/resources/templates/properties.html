@@ -38,7 +38,7 @@
             <td th:text="${property.country}"></td> 
             <td th:text="${property.desc}"></td>
             <td><a th:href="@{/edit/{id}(id=${property.id})}" class="btn btn-xs btn-success">Edit</a></td>	
-			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${property.id})}" class="btn btn-xs btn-danger">Delete</a></td>		
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${property.id})}" class="btn btn-xs btn-danger">Delete</a></td>
     	</tr>
      </table>
 	 <a href="/add" class="btn btn-primary">Add property</a>

@@ -12,18 +12,18 @@ import com.example.propertyviewer.domain.UserRepository;
 
 @Service
 public class UserService implements UserDetailsService  {
-	private final UserRepository urepo;
+	private final UserRepository uRepo;
 
 	@Autowired
-	public UserService(UserRepository urepo) {
-		this.urepo = urepo;
+	public UserService(UserRepository uRepo) {
+		this.uRepo = uRepo;
 	}
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {   
-    	User currUser = urepo.findByUsername(username);
+    	User currUser = uRepo.findByUsername(username);
         UserDetails user = new org.springframework.security.core.userdetails.User(username, currUser.getPasswordHash(), 
         		AuthorityUtils.createAuthorityList(currUser.getRole()));
         return user;
     }   
-} 
+}

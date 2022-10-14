@@ -13,6 +13,7 @@
 	</div>
 	<div class="col-md-4">
 		<h3 th:inline="text">list of [[${#httpServletRequest.remoteUser}]]'s properties</h3>
+		<p th:text="${coordinates}"></p>
 	</div>
 	<div class="col-md-4" style="padding:20px 0">
 		<form th:action="@{/logout}" method="post">
@@ -37,7 +38,8 @@
             <td th:text="${property.city}"></td> 
             <td th:text="${property.country}"></td> 
             <td th:text="${property.desc}"></td>
-            <td><a th:href="@{/edit/{id}(id=${property.id})}" class="btn btn-xs btn-success">Edit</a></td>	
+            <td><a th:href="@{/edit/{id}(id=${property.id})}" class="btn btn-xs btn-success">Edit</a></td>
+			<td><a th:href="@{/coordinates/{name}(name=${property.name})}" class="btn btn-xs btn-success">Coordinates</a></td>	
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${property.id})}" class="btn btn-xs btn-danger">Delete</a></td>
     	</tr>
      </table>

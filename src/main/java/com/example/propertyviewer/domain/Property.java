@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
+//TODO see why lombok with hibernate leads to errors
 @Entity
 public class Property {
     @Id
@@ -35,7 +36,15 @@ public class Property {
         this.city = city;
         this.country = country;
         this.desc = desc;
+       
+    }
 
+    public List<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<Property> properties) {
+        this.properties = properties;
     }
 
     public Long getId() {

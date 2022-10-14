@@ -9,8 +9,4 @@ public interface PropertyRepository extends CrudRepository<Property, Long> {
     List<Property> findAll();
 
     
-
-    //is sth like this needed?
-    //List<Property> findCoordinates(String coordinates);
-    
 }
